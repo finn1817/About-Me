@@ -4,36 +4,48 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>About Me</title>
+  <!-- Import Tailwind CSS for styling -->
   <link rel="stylesheet" href="https://unpkg.com/tailwindcss@2.2.19/dist/tailwind.min.css"/>
+  <!-- Custom styling for additional features -->
   <style>
     body {
       background-image: url('https://github.com/finn1817/image-links/blob/main/city.jpg?raw=true');
       background-size: cover;
+      background-attachment: fixed; /* Ensures the background remains stationary */
     }
+
     #profile {
-      transition: all 0.3s;
+      transition: all 0.3s; /* Smooth transition for hover and theme changes */
     }
+
+    /* Dark theme styles */
     .dark-theme body {
-      color: #f3f4f6;
+      color: #f3f4f6; /* Light text for dark backgrounds */
     }
+
     .dark-theme #profile {
-      background-color: #1f2937 !important;
+      background-color: #1f2937 !important; /* Darker background for dark mode */
     }
   </style>
 </head>
 <body class="font-sans antialiased text-gray-900 leading-normal tracking-wider">
+  <!-- Navigation button back to main website -->
   <div class="absolute top-0 left-0 m-4">
     <a href="https://finn1817.github.io/DanFinn/" class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">
       Back to Home
     </a>
   </div>
 
+  <!-- Main content wrapper -->
   <div class="max-w-4xl mx-auto my-32 lg:my-0 flex flex-wrap items-center">
+    <!-- Profile card with image, name, and details -->
     <div id="profile" class="w-full lg:w-3/5 p-6 rounded-lg shadow-2xl bg-white opacity-75">
       <div class="text-center lg:text-left">
+        <!-- Profile image -->
         <img src="https://github.com/finn1817/image-links/blob/main/city.jpg?raw=true" 
           alt="Profile" 
           class="block lg:hidden rounded-full mx-auto h-48 w-48 -mt-16 bg-cover bg-center">
+        <!-- Name and details -->
         <h1 class="text-3xl font-bold pt-8">Daniel Finn</h1>
         <div class="w-4/5 border-b-2 border-green-500 opacity-25 mx-auto lg:mx-0 my-3"></div>
         <p class="text-base font-bold flex items-center justify-center lg:justify-start">
@@ -48,12 +60,17 @@
           </svg>
           Fredonia, NY - Buffalo, NY
         </p>
+        <!-- Expanded description about you -->
         <p class="pt-8 text-md">
-          I currently go to Fredonia University and am pursuing a degree in Computer Science. My coursework includes C++, C#, cybersecurity, Python, HTML, and data structures. I enjoy solving coding challenges, and my daily commute of an hour has built a strong work ethic.
+          I currently attend Fredonia University, where I’m pursuing a degree in Computer Science. I specialize in programming languages like C++, C#, Python, HTML, and Java, focusing on both academic and personal projects. I’ve tackled challenges such as guessing games in C++, system tweaks for better performance, and dynamic web development. My one-hour morning commute energizes me for the day and keeps me disciplined in balancing school and personal growth.
+        </p>
+        <p class="pt-4 text-md">
+          In addition to coding, I’m passionate about music—playing guitar and exploring new styles. I’ve recently been exploring advanced data structures and looking into creative hardware projects, like building my own distortion pedal. These projects reflect my drive to deepen my understanding of how systems work.
         </p>
       </div>
     </div>
 
+    <!-- Secondary content: optional image or logos -->
     <div class="w-full lg:w-2/5 hidden lg:block">
       <img src="https://github.com/finn1817/image-links/blob/main/sunyFredonia.png?raw=true" 
         alt="SUNY Fredonia Logo" 
@@ -61,16 +78,22 @@
     </div>
   </div>
 
+  <!-- Theme toggle button -->
   <div class="absolute top-0 right-0 p-4">
     <button id="theme-toggle" class="focus:outline-none">🌙</button>
   </div>
 
+  <!-- JavaScript for theme toggle functionality -->
   <script>
+    // Get the theme toggle button and body element
     const toggle = document.getElementById('theme-toggle');
     const body = document.body;
 
+    // Add a click event listener to toggle dark mode
     toggle.addEventListener('click', () => {
-      body.classList.toggle('dark-theme');
+      body.classList.toggle('dark-theme'); // Toggle the dark-theme class on the body
+
+      // Update the button icon based on the theme state
       toggle.textContent = body.classList.contains('dark-theme') ? '☀️' : '🌙';
     });
   </script>
